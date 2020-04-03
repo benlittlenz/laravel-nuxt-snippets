@@ -3,3 +3,19 @@
 @import "tailwindcss/components";
 
 @import "tailwindcss/utilities";
+
+body {
+    @apply bg-gray-200;
+}
+
+a {
+    @apply text-blue-500
+}
+
+p {
+    @apply text-gray-600 mb-6 leading-relaxed;
+}
+
+.container {
+    @apply w-10/12 mx-auto;
+}
