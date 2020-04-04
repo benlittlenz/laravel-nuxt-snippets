@@ -26,10 +26,6 @@
                 </ul>
 
                 <ul class="h-24 flex items-center ml-auto text-right">
-
-
-                   
-
                     <template v-if="$auth.loggedIn">
                         <li class="">
                             <nuxt-link 
@@ -44,10 +40,11 @@
                                 >Dashboard</nuxt-link>
                             </li> 
                             <li class="">
-                                <nuxt-link 
-                                    :to="{name: 'home'} "
+                                <a
+                                    href="#"
+                                    @click.prevent="signOut"
                                     class="text-lg text-gray-700 py-8 px-4"
-                                >Sign Out</nuxt-link>
+                                >Sign Out</a>
                             </li> 
                     </template>
                      <template v-else>
@@ -72,3 +69,18 @@
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+
+        }
+    },
+    methods: {
+        async signOut() {
+            await this.$auth.logout()
+        }
+    }
+}
+</script>
