@@ -62,8 +62,6 @@
                             >Create Account</nuxt-link>
                         </li> 
                     </template>
-                   
-
                 </ul>
             </div>
         </div>
