@@ -1,3 +1,5 @@
+let env = require('dotenv').config();
+
 export default {
   mode: 'universal',
   /*
@@ -40,7 +42,33 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/auth'
+  ],
+  axios: {
+    baseURL: env.parsed.API_URL
+  },
+
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            url: '/auth/signin',
+            method: 'post',
+            propertyName: 'data.token'
+          },
+          user: {
+            url: '/auth/me',
+            method: 'get',
+            propertyName: 'data'
+          }
+        }
+
+      }
+    }
+  },
   /*
    ** Build configuration
    */

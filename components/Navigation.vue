@@ -26,33 +26,46 @@
                 </ul>
 
                 <ul class="h-24 flex items-center ml-auto text-right">
-                   <li class="">
-                    <nuxt-link 
-                        :to="{name: 'home'} "
-                        class="text-lg text-gray-700 py-8 px-4"
-                    >Sign In</nuxt-link>
-                   </li> 
 
-                   <li class="">
-                    <nuxt-link 
-                        :to="{name: 'home'} "
-                        class="text-lg text-gray-700 py-8 px-4"
-                    >Create Account</nuxt-link>
-                   </li> 
 
-                   <li class="">
-                    <nuxt-link 
-                        :to="{name: 'home'} "
-                        class="text-lg text-gray-700 py-8 px-4"
-                    >Sign Out</nuxt-link>
-                   </li> 
+                   
 
-                   <li class="">
-                    <nuxt-link 
-                        :to="{name: 'home'} "
-                        class="text-lg text-gray-700 py-8 px-4"
-                    >User name</nuxt-link>
-                   </li> 
+                    <template v-if="$auth.loggedIn">
+                        <li class="">
+                            <nuxt-link 
+                                :to="{name: 'home'} "
+                                class="text-lg text-gray-700 py-8 px-4"
+                            >{{$auth.user.name}}</nuxt-link>
+                        </li> 
+                            <li class="">
+                                <nuxt-link 
+                                    :to="{name: 'home'} "
+                                    class="text-lg text-gray-700 py-8 px-4"
+                                >Dashboard</nuxt-link>
+                            </li> 
+                            <li class="">
+                                <nuxt-link 
+                                    :to="{name: 'home'} "
+                                    class="text-lg text-gray-700 py-8 px-4"
+                                >Sign Out</nuxt-link>
+                            </li> 
+                    </template>
+                     <template v-else>
+                        <li class="">
+                            <nuxt-link 
+                                :to="{name: 'auth-signin'} "
+                                class="text-lg text-gray-700 py-8 px-4"
+                            >Sign In</nuxt-link>
+                        </li> 
+
+                        <li class="">
+                            <nuxt-link 
+                                :to="{name: 'home'} "
+                                class="text-lg text-gray-700 py-8 px-4"
+                            >Create Account</nuxt-link>
+                        </li> 
+                    </template>
+                   
 
                 </ul>
             </div>
